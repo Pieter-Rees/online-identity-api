@@ -1,0 +1,30 @@
+{
+  "name": "online-identity-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pieter-Rees/online-identity-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pieter-Rees/online-identity-api/issues"
+  },
+  "homepage": "https://github.com/Pieter-Rees/online-identity-api#readme",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
+    "mongoose": "^5.8.7",
+    "node-uuid": "^1.4.8",
+    "swagger-ui-express": "^4.1.2",
+    "sync-request": "^6.1.0"
+  }
+}
