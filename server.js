@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const port = process.env.PORT || 8080; // set our port
+const port = process.env.PORT || 5050; // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
