@@ -8,7 +8,9 @@ const express = require('express'), // call express
   app = express(), // define our app using express
   bodyParser = require('body-parser'),
   cors = require('cors'),
-  helmet = require('helmet');
+  helmet = require('helmet'),
+  https = require('https');
+
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(helmet());
@@ -16,7 +18,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(helmet());
+
 const port = process.env.PORT || 5050; // set our port
+const privateKey = fs.readFileSync('/home/pietsmailserver/ssl.key', 'utf8');
+const certificate = fs.readFileSync('/home/pietsmailserver/ssl.cert', 'utf8');
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -73,5 +78,13 @@ app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
+https
+  .createServer(
+    {
+      key: privateKey,
+      cert: certificate,
+    },
+    app
+  )
+  .listen(port);
 console.log('Magic happens on port ' + port);
