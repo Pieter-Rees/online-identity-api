@@ -9,7 +9,11 @@ const express = require('express'), // call express
   bodyParser = require('body-parser'),
   cors = require('cors'),
   helmet = require('helmet'),
-  https = require('https');
+  fs = require('fs'),
+  https = require('https'),
+  port = process.env.PORT || 5050, // set our port
+  privateKey = fs.readFileSync('/home/pietsmailserver/ssl.key', 'utf8'),
+  certificate = fs.readFileSync('/home/pietsmailserver/ssl.cert', 'utf8');
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -18,10 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(helmet());
-
-const port = process.env.PORT || 5050; // set our port
-const privateKey = fs.readFileSync('/home/pietsmailserver/ssl.key', 'utf8');
-const certificate = fs.readFileSync('/home/pietsmailserver/ssl.cert', 'utf8');
 
 // ROUTES FOR OUR API
 // =============================================================================
