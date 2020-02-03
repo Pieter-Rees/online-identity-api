@@ -26,7 +26,7 @@ const router = express.Router(); // get an instance of the express Router
 router.get('/landing', function(req, res) {
   res.send({
     name: 'Pieter Rees',
-    title: "Capt'n Stylesauce",
+    title: 'Develops Stuff',
   });
 });
 
@@ -34,19 +34,43 @@ router.get('/about', function(req, res) {
   res.send({
     title: 'The guy',
     copy:
-      'My name is Pieter Rees. I am a Developer with a passion for clean coding and perfect design. I am currently working @ Goodup, a do-good crowd funding platform in the beautiful city of Amsterdam. I love to work with modern development stacks.',
+      'My name is Pieter Rees. I am a Developer with full stack experience and a huge interest for everything that is related to electronics and technology.',
   });
 });
 
 router.get('/skills', function(req, res) {
   res.send({
     title: 'Skills',
-    skill1: 'Development',
+    skill1: 'Frontend',
     skill1Copy:
-      'I am a frontend architect with a passion for beautiful user experience. I will build your website with passion and pace. Based on the latest technology stack. That means I speak primarily Html(5), (Sc,Le)ss and Javascript (vanilla and frameworks). I also love some Backend.',
-    skill2: 'UX',
+      'Fronted Development is something i adore. My biggest passion is to deliver meaningfull software focussed on a streamlined user design and peformance. Usibility shoud be a fundamental right.',
+    skill2: 'Backend',
     skill2Copy:
-      'The design of an app or website is useless without an effective and efficient user experience. I strongly believe that a great and beautyful website experience will extend your brand feeling and connect you with new people. It starts with prototyping and ends with testing of the final product. I use Pen & Paper, Balsamiq, Sketch and Axure.',
+      "I am getting highly enthausiastic from server side applications, API's, NodeJS, Python, databases, security, requests and responds. The whole shabang.",
+    skill3: 'Devops',
+    skill3Copy:
+      "Nothing can reach it's potential without a streamlined build and deploy process. Let's provide continuous delivery with high software quality.",
+  });
+});
+
+router.get('/hobbys', function(req, res) {
+  res.send({
+    title: 'Hobbys',
+    hobby1: 'IOT',
+    hobby1Copy:
+      'I enjoy myself with almost everything that has an ip address. From single board computers to home automation systems, i love it all.',
+    hobby2: 'RC',
+    hobby2Copy:
+      'If it is controlable from a distance, i love it. I am interested DIY drone building and everything related.',
+    hobby3: 'Linux',
+    hobby3Copy:
+      'Sometimes i play around for days fiddeling with Linux. Preffered OS: Arch',
+    hobby4: 'Ancient tech',
+    hobby4Copy:
+      'In these moders times people should respect the elders. I will get highly enthaustastic from ancient and not so ancient tech.',
+    hobby5: 'Food',
+    hobby5Copy:
+      'From fermentation to Sous-vide, i appriciate good cooking and good prepared food.',
   });
 });
 
@@ -54,7 +78,7 @@ router.get('/work', function(req, res) {
   res.send({
     title: 'Work?',
     copy:
-      "Besides my work for the best 'do good' platform in Amsterdam, i am also a code hobbyist with allmost 6 years experience in frontend development. I am allways up for a nice talk about innovative ideas. Please drop me a line.",
+      'Currently i am working @ GoodUp. We provide The #1 tech solution for activating employees on your company purpose. I am allways up for a nice talk about innovative ideas. Please drop me a line via E-mail.',
   });
 });
 
