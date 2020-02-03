@@ -8,7 +8,13 @@ const express = require('express'), // call express
   app = express(), // define our app using express
   bodyParser = require('body-parser'),
   cors = require('cors'),
-  helmet = require('helmet');
+  helmet = require('helmet'),
+  fs = require('fs'),
+  https = require('https'),
+  port = process.env.PORT || 5050, // set our port
+  privateKey = fs.readFileSync('/home/pietsmailserver/ssl.key', 'utf8'),
+  certificate = fs.readFileSync('/home/pietsmailserver/ssl.cert', 'utf8');
+
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(helmet());
@@ -16,13 +22,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 app.use(helmet());
-const port = process.env.PORT || 5050; // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
 const router = express.Router(); // get an instance of the express Router
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+// test route to make sure everything is working (accessed at GET
+// http://localhost:8080/api)
 router.get('/landing', function(req, res) {
   res.send({
     name: 'Pieter Rees',
@@ -97,5 +103,13 @@ app.use('/api', router);
 
 // START THE SERVER
 // =============================================================================
-app.listen(port);
+https
+  .createServer(
+    {
+      key: privateKey,
+      cert: certificate,
+    },
+    app
+  )
+  .listen(port);
 console.log('Magic happens on port ' + port);
